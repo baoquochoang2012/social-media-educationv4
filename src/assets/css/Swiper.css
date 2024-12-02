@@ -1,0 +1,26 @@
+/* CSS in your styles file or directly in the component using Tailwind or inline styles */
+.banner img {
+    width: 100%; /* Make image responsive */
+    max-height: 300px; /* Limit the height */
+    object-fit: cover; /* Ensures image maintains aspect ratio */
+  }
+  
+  .mySwiper {
+    /* max-width: 600px; Limits the width of the Swiper */
+    margin: auto; /* Centers the Swiper */
+  }
+  
+  .content-banner {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); /* Slight background for text readability */
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+
+  .swiper.swiper-initialized.swiper-horizontal.swiper-backface-hidden.mySwiper {
+    z-index: 0 !important;
+  }
