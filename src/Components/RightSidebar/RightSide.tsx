@@ -47,6 +47,10 @@ const RightSide: React.FC<RightSideProps> = () => {
   useEffect(() => {
     const fetchToken = async () => {
       try {
+        if (client) {
+          // Disconnect the existing client
+          await client.disconnectUser();
+        }
         const response = await fetch(`http://localhost:3000/generate-token?userId=${userId}`);
         const data = await response.json();
   
