@@ -321,7 +321,7 @@ const FriendProfile = () => {
       const notifyQuery = query(
         collection(db, "notifi"),
         where("uid", "==", uid), // Người nhận
-        where("senderId", "==", user?.uid), // Người gửi
+        where("senderId", "==", userData?.uid), // Người gửi
         where("type", "==", "friend_request") // Loại thông báo cụ thể cần cập nhật
       );
   
@@ -331,7 +331,7 @@ const FriendProfile = () => {
         // Nếu đã có thông báo, cập nhật nội dung và loại
         const notifyDocId = notifySnapshot.docs[0].id;
         await updateDoc(doc(db, "notifi", notifyDocId), {
-          message: `${user?.displayName || "Someone"} ${content}`,
+          message: `${userData?.name || "Someone"} ${content}`,
           type: type, // Cập nhật loại thông báo mới
           timestamp: new Date(), // Cập nhật thời gian
           read: false, // Đánh dấu lại thông báo chưa đọc
@@ -343,10 +343,10 @@ const FriendProfile = () => {
         const notificationRef = doc(collection(db, "notifi"));
         await setDoc(notificationRef, {
           uid: uid,
-          message: `${user?.displayName || "Someone"} ${content}`,
+          message: `${userData?.name || "Someone"} ${content}`,
           timestamp: new Date(),
           senderId: user?.uid,
-          senderName: user?.displayName,
+          senderName: userData?.name,
           senderAvt: userData?.image || user?.photoURL,
           type: type,
           read: false,

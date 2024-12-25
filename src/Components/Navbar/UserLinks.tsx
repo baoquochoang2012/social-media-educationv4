@@ -263,10 +263,10 @@ const UserLinks = () => {
 
       await setDoc(notificationRef, {
         uid: uid, // User ID of the person receiving the notification
-        message: `${user?.displayName || "Someone"} ${content}`,
+        message: `${userData?.name || "Someone"} ${content}`,
         timestamp: new Date(),
-        senderId: user?.uid,
-        senderName: user?.displayName,
+        senderId: userData?.uid,
+        senderName: userData?.name,
         senderAvt: userData?.image || user?.photoURL,
         type: type, // Type of notification, e.g., 'friend_request', 'friend_removal'
         read: false, // Notification is unread initially

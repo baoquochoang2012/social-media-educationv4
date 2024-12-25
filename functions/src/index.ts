@@ -29,7 +29,7 @@ export const sendInvitationEmail = functions.https.onRequest(
     }
 
     const mailOptions = {
-      from: "phucxh008@gmail.com",
+      from: "baohqgcs17182@fpt.edu.vn",
       to: email,
       subject: "Invitation to Join",
       text: "You have been invited to join our platform!",
